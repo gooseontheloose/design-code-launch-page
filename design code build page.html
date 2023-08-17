@@ -27,20 +27,27 @@
         h4,
         h5,
         h6 {
-            
+
             font-family: "Roboto", sans-serif;
             justify-content: center;
         }
 
-    .card {
-        margin: 20px;
-    }
+        .card {
+            margin: 10px;
+            text-align: center;
+        }
+
         /* CSS for screens with width under 768px */
 
         @media (max-width: 768px) {
+
+            body {
+                background-color: #acacac;
+
+            }
+
             .w3-row .w3-col {
                 width: 100%;
-                
             }
 
             .skill-column {
@@ -50,17 +57,17 @@
                 /* Add other styling properties here */
                 overflow: hidden;
             }
-
-            .container {
-            width: 500px;
-            height: 2000;
-            }
         }
-
 
         /* CSS for screens with width between 768px and 1024px */
 
         @media (min-width: 768px) and (max-width: 1024px) {
+
+            body {
+                background-color: #acacac;
+
+            }
+
             .skill-column {
                 height: 600px;
                 /* Set the height for screens between 768px and 1024px */
@@ -103,10 +110,6 @@
             text-decoration: none;
             transition: background-color 0.3s, font-size 0.3s;
         }
-
-.containerMainContent{
-    display: none;
-}
 
         /* Style for all links on hover */
 
@@ -193,6 +196,22 @@
             background-image: url("");
             background-repeat: repeat-y;
             background-position: 50% 50%;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .particles-js {
+                margin-top: -20px;
+                ;
+                position: absolute;
+                width: 100%;
+                height: 110%;
+                background-color: #acacac;
+                background-image: url("");
+                background-repeat: repeat-y;
+                background-position: 50% 50%;
+            }
+
         }
 
         .hide-top-container {
@@ -733,19 +752,30 @@
             }
         }
 
-
-        .container {
-            width: 1800px;
-            position: relative;
+        .center-container {
             display: flex;
-            flex-wrap: wrap; /* Allow cards to wrap to the next row */
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
-
+            height: 100vh;
+            background: #333;
+            margin: 0;
+            padding: 0;
         }
 
+        .container {
+            max-width: 100%;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-        
+        /* Existing CSS continued... */
+
+
+
+
+
         .container .card {
             position: relative;
         }
@@ -804,7 +834,7 @@
             font-size: 3em;
             color: white;
             display: inline-block;
-            
+
 
         }
 
@@ -822,7 +852,7 @@
 
         .container .card .face.face2 {
             position: relative;
-            background: whitesmoke;
+            /*background: ;*/
             display: flex;
             align-items: center;
             justify-content: center;
@@ -866,6 +896,83 @@
     </style>
 </head>
 
+<!-- Top container -->
+<div id="contentContainer" style="display: none;">
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4; display: flex; justify-content: center;">
+        <div class="w3-container w3-display-left w3-hide-small w3-hide-medium" id="pageNav">
+            <h5><i class="fa fa-compass fa-fw  " style="justify-content: left"></i> Page Navigation</h5>
+        </div>
+        <a href="#" class="w3-button w3-hover-none w3-text-grey w3-hover-text-white top-nav-link">Home</a>
+        <a href="#" onclick="openbuttonOptionsModal()" class="w3-bar-item w3-button w3-padding"
+            style="border-radius: 4px; width:fit-content; visibility: visible; background-color: #596CCE; color: white; display: block; padding: 16px 20px;">
+            HIRE ME
+            </button>
+            <a href="https://www.rea.media/webdesign/" target="_blank"
+                class="w3-button w3-hover-none w3-text-grey w3-hover-text-white top-nav-link">Portfolio</a>
+
+    </div>
+
+    <!-- Secondary Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse w3-animate-left"
+        style="z-index:2;width:200px;margin-top: -20px; height: 101%; visibility: hidden;" id="hiddenSidebar">
+        <div class="w3-container" style="width: 200px;"> <!-- Adjusted width -->
+            <button onclick="openNav()" class="w3-bar-item w3-button w3-padding"
+                style="border-radius: 4px; width:fit-content; visibility: visible;
+        position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); background-color: #596CCE; color: white; display: block; padding: 16px 20px;">
+                <i class="fa fa-bars fa-fw"></i> Open Menu
+            </button>
+        </div>
+    </nav>
+
+
+    <!-- Main Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse w3-light-grey w3-animate-left"
+        style="z-index:3;width:200px;margin-top: -8px; height: 101%; overflow: hidden;" id="mySidebar"
+        id="contentToHide">
+        <div class="w3-container" style="white-space: nowrap;">
+            <h5><i class="fa fa-compass fa-fw"></i> Page Navigation</h5>
+        </div>
+        <div class="w3-bar-blockc">
+            <a href="#about" class="w3-bar-item w3-button w3-padding active-menu-item"
+                style="width: 200px;  text-align: left;">
+                <i class="fa fa-user-secret fa-fw"></i> About Me
+            </a>
+            <a href="#skills" class="w3-bar-item w3-button w3-padding" style="width: 200px; text-align: left;">
+                <i class="fa fa-code fa-fw"></i> Development Skills
+            </a>
+            <a href="#projects" class="w3-bar-item w3-button w3-padding" style="width: 200px; text-align: left;">
+                <i class="fa fa-code-fork fa-fw"></i> Recent Projects
+            </a>
+            <a href="#work" class="w3-bar-item w3-button w3-padding" style="width: 200px; text-align: left;">
+                <i class="fa fa-suitcase fa-fw"></i> Work Experience
+            </a>
+            <a href="#education" class="w3-bar-item w3-button w3-padding" style="width: 200px; text-align: left;">
+                <i class="fa fa-certificate fa-fw"></i> Education
+            </a>
+            <a href="#blog" class="w3-bar-item w3-button w3-padding" style="width: 200px; text-align: left;">
+                <i class="fa fa-book fa-fw"></i> Blog
+            </a>
+            <!-- Additional buttons at the bottom-center of the navigation -->
+
+            <button onclick="closeNav()" class="3-bar-item w3-button w3-padding"
+                style="border-radius: 4px;
+        position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #596CCE; color: white; display: block; padding: 16px 20px;">
+                <i class="fa fa-times fa-fw"></i> Close Menu
+            </button>
+
+            <a href="#" onclick="openbuttonOptionsModal()" class="w3-bar-item w3-button w3-padding"
+                style="         border-radius: 4px;
+               position: absolute; bottom: 120px; left: 50%; transform: translateX(-50%); background-color: #596CCE; color: white; display: block; padding: 16px 20px;">
+                <i class="fa fa-info-circle fa-fw"></i> Contact
+            </a>
+            <a href="https://github.com/gooseontheloose/Resume-Portfolio-Site-4.5.0-dark-theme" target="_blank"
+                class="w3-bar-item w3-button w3-padding"
+                style="         border-radius: 4px; position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%); background-color: #596CCE; color: white; display: block; padding: 16px 20px;">
+                <i class="fa fa-github fa-fw"></i> Steal My Site
+            </a>
+        </div>
+    </nav>
+</div>
 
 
 </head>
@@ -883,7 +990,7 @@
 
 
 <body>
-    <div style="background-color: #acacac;">
+    <div>
         <div id="particles-js"></div>
         <div id="loadingAnimation">
             <div class="loader-container">
@@ -963,15 +1070,14 @@
 
     </script>
     <!-- Page Container -->
-    <div id="">
-        <div class="w3-content" >
+    <div id="contentMainContainer" style="display: none;">
+        <div class="w3-content">
             </br>
             </br>
             <!-- The Grid -->
             <div>
 
                 <!-- Left Column -->
-                <div id="contentContainer">
                 <div class="container">
                     <div class="card">
 
@@ -981,7 +1087,7 @@
                                     src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/design_128.png?raw=true">
                                 <h3>Design</h3>
 
-                        </div>
+                            </div>
                         </div>
                         <div class="face face2">
                             <div class="content">
@@ -1008,7 +1114,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="card">
                         <div class="face face1">
                             <div class="content w3-padding-top-24">
@@ -1026,7 +1132,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
                 <!-- End The Grid -->
             </div>
             <!-- End Page Container -->
@@ -1309,7 +1415,6 @@
                     contentContainer.style.display = "block";
                     var contentMainContainer = document.getElementById("contentMainContainer");
                     contentMainContainer.style.display = "block";
-                    document.body.style.overflow = 'auto';
                 }); // 1 second delay
             }, 2200); // 3 seconds loading time
         }
@@ -1317,9 +1422,9 @@
         // Call the loading simulation function
         simulateLoading();
 
-        window.onload = function() {
-        closeNav();
-    };
+        window.onload = function () {
+            closeNav();
+        };
     </script>
 
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
